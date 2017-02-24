@@ -6,9 +6,10 @@ I don't know what you want, pylint!
 from random import randint
 from flask import Flask, jsonify
 
-APP = Flask(__name__)
+# Have to call it `application` for Elastic Beanstalk to work? lol
+application = Flask(__name__)
 
-@APP.route('/')
+@application.route('/')
 def index():
     """Here's the index function!"""
     number = randint(1, 20)
@@ -21,4 +22,4 @@ def index():
     })
 
 if __name__ == '__main__':
-    APP.run()
+    application.run()
